@@ -1,10 +1,11 @@
 import React from 'react';
+import '../logo.svg';
 
 const Navbar = () => {
     return (
         <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="/">Home</a>
-            <a class="navbar-brand" href="/directory">Directory</a>
+            <a class="navbar-brand" href="/"><img src="logo.svg" alt="logo" style={{width: 50}}/></a>
+            <a class="navbar-brand" href="/">Directory</a>
             <a class="navbar-brand" href="/details">Details</a>
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
