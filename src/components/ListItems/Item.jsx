@@ -7,16 +7,15 @@ const Item = (props) => {
     <div className="container-fluid">
       <div className="row single-item" style={{
           padding: 10, borderBlockColor: 'dark'}}>
-        <div className="col-1">
-          <img src={props.picture.thumbnail} alt="Employee avatar"></img>
-        </div>
-        <div className="col-2">{props.name.first}</div>
-        <div className="col-2">{props.name.last}</div>
-        <div className="col-4">{props.email}</div>
-        <div className="col-3">{props.cell}</div>
+        <tr>                
+          <td><img src={props.picture.thumbnail} alt="Employee avatar"></img></td>
+          <td>{props.name.first}</td>
+          <td>{props.name.last}</td>
+          <td>{props.email}</td>
+          <td>{props.cell}</td>
+        </tr>
       </div>
     </div>
-
   );
 };
 
