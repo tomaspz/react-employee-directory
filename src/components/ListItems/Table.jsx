@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+// import { browserHistory } from "react-router";
+// import { useHistory } from "react-router-dom";
 
 const Table = (props) => {
-
+  
   return (
     <div className="container">
 
@@ -10,24 +13,33 @@ const Table = (props) => {
           <thead>
             <tr>
               <th scope="col">Picture</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
+              <th scope="col"><button className="btn btn-outline-success my-2 my-sm-0" type="button">First Name</button></th>
+              <th scope="col"><button className="btn btn-outline-success my-2 my-sm-0" type="button">Last Name</button></th>
               <th scope="col">Email</th>
               <th scope="col">Cell</th>
             </tr>
           </thead>
           <tbody>
             {props.employeesToDisplay.map((employee, index) => {
-      return (
-        <tr key={index}>
-          <td><img src={employee.picture.thumbnail} alt="employee avatar" /></td>
-          <td>{employee.name.first}</td>
-          <td>{employee.name.last}</td>
-          <td>{employee.email}</td>
-          <td>{employee.cell}</td>
-        </tr>
-      )
-    })}
+              return (
+                <tr key={index}>
+                  <td><img src={employee.picture.thumbnail} alt="employee avatar" /></td>
+                  <td>{employee.name.first}</td>
+                  <td>{employee.name.last}</td>
+                  <td>{employee.email}</td>
+                  <td>{employee.cell}</td>
+                  <td>
+                    <Link to={{
+                      pathname: "/details",
+                      state: {
+                        employee: employee 
+                      }
+                    }} id={employee.login.uuid} className="btn btn-outline-success my-2 my-sm-0" role="button">Details
+                    </Link>
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </div>
