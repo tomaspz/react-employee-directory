@@ -15,7 +15,10 @@ The search feature is included in all the pages for easier access. You can searc
 ### App Screenshot
 
 ![Employee Directory Screenshot](public/employee-directory-screenshot.png)
+
 - - -
+![User Detail Screenshot](public/user-detail-screenshot.png)
+
 ### Instructions for Development
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Also the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started) provides much more information. To learn React, check the [React documentation](https://reactjs.org/).
