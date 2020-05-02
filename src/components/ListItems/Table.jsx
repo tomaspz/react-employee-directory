@@ -17,7 +17,7 @@ const Table = (props) => {
             </tr>
           </thead>
           <tbody>
-            {props.employees.map((employee, index) => {
+            {props.employeesToDisplay.map((employee, index) => {
       return (
         <tr key={index}>
           <td><img src={employee.picture.thumbnail} alt="employee avatar" /></td>

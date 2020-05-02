@@ -23,6 +23,7 @@ export default class Directory extends Component {
         // console.log(response.data.results);
         this.setState({
           employees: response.data.results,
+          employeesToDisplay: response.data.results
         });
       })
       .catch((err) => {
@@ -34,14 +35,14 @@ export default class Directory extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const employees = [...this.state.empoyees];
+    const employees = [...this.state.employees];
     const filteredEmployees = employees.filter(employee => {
-        // return employee.last.name.includes(this.state.searchTerm);
+        // return employee.name.last.includes(this.state.searchTerm);
         const regex = new RegExp(this.state.searchTerm, 'gi');
-        return employee.last.name.match(regex);
+        return employee.name.last.match(regex);
     });
     this.setState({
-      employees: filteredEmployees
+      employeesToDisplay: filteredEmployees
     })
   }
 
@@ -57,17 +58,18 @@ export default class Directory extends Component {
   render() {
     return (
       <div>
-        <div className="row justify-content-center" style={{ backgroundColor: 'blue', color: 'white', textAlign: 'center', margin: 20 }}>
-          <h1>Employee Directory</h1>
+        <div className="row justify-content-center" style={{ backgroundColor: 'darkslategrey', color: 'white', textAlign: 'center', margin: 20 }}>
+          <h1 style={{marginLeft: 30}}>Employee Directory</h1>
           <hr />
           {/* SEARCH FORM */}
-          <form className="form-inline">
+          <form className="form-inline" onSubmit={this.handleSubmit} style={{marginRight: 30}}>
                 <input 
                   className="form-control mr-sm-2" 
-                  type="search" 
-                  placeholder="Search" 
+                  type="text" 
+                  placeholder="Search By Last Name" 
                   aria-label="Search"
                   name="searchTerm"
+                  value={this.state.searchTerm}
                   onChange={this.handleChange}
                 />
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
